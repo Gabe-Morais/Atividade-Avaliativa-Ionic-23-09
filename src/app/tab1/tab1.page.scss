@@ -1,0 +1,51 @@
+.wrapper{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items:  center;
+}
+
+.operations {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ion-button{
+        width: 100%;
+    }
+}
+
+.maior-menor {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ion-button{
+        width: 100%;
+    }
+}
+
+.result{
+    width: 100%;
+    ion-label{
+        color: rgb(88, 88, 88);
+        width: 100%;
+        span{
+            color: black;
+        }
+    }
+}
+
+.current-operation{
+    width: 100%;
+    ion-label{
+        color: rgb(88, 88, 88);
+        width: 100%;
+        span{
+            color: black;
+        }
+    }
+}
