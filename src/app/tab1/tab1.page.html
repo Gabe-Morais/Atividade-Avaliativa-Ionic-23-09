@@ -1,9 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="black-header">
     <ion-title>
       Calculadora
     </ion-title>
-    <ion-button slot="end" (click)="limpar()">C</ion-button>
+    <ion-fab-button  color="pink" size="small" slot="end" (click)="limpar()">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
   </ion-toolbar>
 </ion-header>
 
@@ -33,7 +35,7 @@
 
     <ion-item class="result">
       <ion-label>Resultado: <span>{{resultado}}</span></ion-label>
-    </ion-item> 
+    </ion-item>
 
     <ion-item class="current-operation">
       <ion-label>Conta: <span>{{currentOp}}</span> </ion-label>

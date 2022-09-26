@@ -3,6 +3,23 @@
 
 /** Ionic CSS Variables **/
 :root {
+
+  /** pink **/
+  --ion-color-pink: #e77786;
+	--ion-color-pink-rgb: 231,119,134;
+	--ion-color-pink-contrast: #000000;
+	--ion-color-pink-contrast-rgb: 0,0,0;
+	--ion-color-pink-shade: #cb6976;
+	--ion-color-pink-tint: #e98592;
+
+  /** header-black **/
+  --ion-color-black-header: #101118;
+	--ion-color-black-header-rgb: 16,17,24;
+	--ion-color-black-header-contrast: #ffffff;
+	--ion-color-black-header-contrast-rgb: 255,255,255;
+	--ion-color-black-header-shade: #0e0f15;
+	--ion-color-black-header-tint: #28292f;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -44,7 +61,7 @@
   --ion-color-warning-tint: #ffca22;
 
   /** danger **/
-  --ion-color-danger: #eb445a;
+  --ion-color-danger: rgb(231, 119, 134);
   --ion-color-danger-rgb: 235, 68, 90;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
@@ -233,4 +250,21 @@
 
     --ion-card-background: #1e1e1e;
   }
+}
+.ion-color-black-header {
+	--ion-color-base: var(--ion-color-black-header);
+	--ion-color-base-rgb: var(--ion-color-black-header-rgb);
+	--ion-color-contrast: var(--ion-color-black-header-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-black-header-contrast-rgb);
+	--ion-color-shade: var(--ion-color-black-header-shade);
+	--ion-color-tint: var(--ion-color-black-header-tint);
+}
+
+.ion-color-pink {
+	--ion-color-base: var(--ion-color-pink);
+	--ion-color-base-rgb: var(--ion-color-pink-rgb);
+	--ion-color-contrast: var(--ion-color-pink-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-pink-contrast-rgb);
+	--ion-color-shade: var(--ion-color-pink-shade);
+	--ion-color-tint: var(--ion-color-pink-tint);
 }
