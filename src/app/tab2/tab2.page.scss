@@ -1,0 +1,39 @@
+.left-btn {
+    width: 55px;
+}
+
+.middle-btn{
+    width: 49px;
+}
+
+.right-btn {
+    width: 55px;
+}
+
+ion-button {
+    --background: #242730;
+    color: #FFFFFF;
+    font-size: 16px;
+} 
+
+.btn-other{
+    --background: #2e323d;
+}
+
+.btn-clean{
+    --background: #e23048;
+    color: #242730;
+}
+
+.wrapper {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-result{
+    --background: rgb(103, 223, 115);
+    color: #242730;
+}
