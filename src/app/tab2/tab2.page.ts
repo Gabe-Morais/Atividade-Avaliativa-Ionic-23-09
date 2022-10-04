@@ -7,17 +7,45 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  leftOp = '0';
-  rightOp = '0';
-  Operator = '';
-  fullOperation = '0';
+  operation = '';
+  result = '';
   hasOperator = false;
-  
-  constructor() {}
-    botao(numero){
-        if(!this.hasOperator){
-          this.leftOp === '0' ? this.leftOp = numero : this.leftOp += numero.toString();
-          this.fullOperation = this.leftOp;
-        }
+
+  constructor() { }
+
+
+  addValue(valor: any) {
+    if (!this.operation && this.valueIsOperator(valor)) {
+      this.operation = '';
+    } else if (this.valueIsOperator(valor) && (this.hasOperator == false)) {
+      this.hasOperator = true;
+      this.operation += valor;
+    } else if (this.valueIsOperator(valor) && (this.hasOperator)) {
+      return
+    } else if (valor != this.operation) {
+      this.operation += valor;
+      this.hasOperator = false;
     }
+
+  }
+
+  valueIsOperator(value: string):boolean {
+    return (value == '+' || value == '-' || value == '*' || value == '/');
+  }
+
+  clearAll() {
+    this.operation = '';
+    this.result = '';
+  }
+
+  clearOperation() {
+    this.operation = '';
+  }
+
+  clearLastChar() {
+    if (this.operation.length > 0) {
+      this.operation = this.operation.substring(0, this.operation.length - 1);
+    }
+  }
+
 }

@@ -8,12 +8,13 @@
 
 <ion-content [fullscreen]="true">
   <ion-item>
-    <ion-label position="stacked">Operação</ion-label>
-    <ion-input placeholder="0"></ion-input>
+    <ion-label position="stacked"><strong>Operação</strong></ion-label>
+    <ion-input class="ion-text-right" placeholder="0" [(ngModel)]="operation"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label>Resultado: {{fullOperation}} </ion-label>
+  <ion-item lines="full">
+    <ion-label><strong>Resultado</strong></ion-label>
+    <ion-label class="ion-class-right resultado">{{result}}</ion-label>
   </ion-item>
 
 
@@ -21,44 +22,44 @@
 
     <div>
       <ion-button class="left-btn btn-other">%</ion-button>
-      <ion-button class="middle-btn btn-other">CE</ion-button>
-      <ion-button class="middle-btn btn-other">C</ion-button>
-      <ion-button class="right-btn btn-clean">A</ion-button>
+      <ion-button class="middle-btn btn-other" (click)="clearAll()">CE</ion-button>
+      <ion-button class="middle-btn btn-other" (click)="clearOperation()">C</ion-button>
+      <ion-button class="right-btn btn-clean" (click)="clearLastChar()"><ion-icon class="back" name="backspace"></ion-icon></ion-button>
     </div>
 
     <div>
       <ion-button class="left-btn btn-other">1/x</ion-button>
       <ion-button class="middle-btn btn-other">x²</ion-button>
       <ion-button class="middle-btn btn-other">²√x</ion-button>
-      <ion-button class="right-btn btn-other">÷</ion-button>
+      <ion-button class="right-btn btn-other" (click)="addValue('/')">÷</ion-button>
     </div>
 
     <div>
-      <ion-button class="left-btn" (click)="botao(7)">7</ion-button>
-      <ion-button class="middle-btn" (click)="botao(8)">8</ion-button>
-      <ion-button class="middle-btn" (click)="botao(9)">9</ion-button>
-      <ion-button class="right-btn btn-other">X</ion-button>
+      <ion-button class="left-btn" (click)="addValue(7)">7</ion-button>
+      <ion-button class="middle-btn" (click)="addValue(8)">8</ion-button>
+      <ion-button class="middle-btn" (click)="addValue(9)">9</ion-button>
+      <ion-button class="right-btn btn-other" (click)="addValue('*')">X</ion-button>
     </div>
 
     <div>
-      <ion-button class="left-btn" (click)="botao(4)">4</ion-button>
-      <ion-button class="middle-btn" (click)="botao(5)">5</ion-button>
-      <ion-button class="middle-btn" (click)="botao(6)">6</ion-button>
-      <ion-button class="right-btn btn-other">-</ion-button>
+      <ion-button class="left-btn" (click)="addValue(4)">4</ion-button>
+      <ion-button class="middle-btn" (click)="addValue(5)">5</ion-button>
+      <ion-button class="middle-btn" (click)="addValue(6)">6</ion-button>
+      <ion-button class="right-btn btn-other" (click)="addValue('-')">-</ion-button>
     </div>
 
 
     <div>
-      <ion-button class="left-btn" (click)="botao(1)">1</ion-button>
-      <ion-button class="middle-btn" (click)="botao(2)">2</ion-button>
-      <ion-button class="middle-btn" (click)="botao(3)">3</ion-button>
-      <ion-button class="right-btn btn-other">+</ion-button>
+      <ion-button class="left-btn" (click)="addValue(1)">1</ion-button>
+      <ion-button class="middle-btn" (click)="addValue(2)">2</ion-button>
+      <ion-button class="middle-btn" (click)="addValue(3)">3</ion-button>
+      <ion-button class="right-btn btn-other" (click)="addValue('+')">+</ion-button>
     </div>
 
     <div>
-      <ion-button class="left-btn btn-other">+/-</ion-button>
-      <ion-button class="middle-btn">0</ion-button>
-      <ion-button class="middle-btn btn-other">,</ion-button>
+      <ion-button class="left-btn btn-other" >+/-</ion-button>
+      <ion-button class="middle-btn" (click)="addValue(0)">0</ion-button>
+      <ion-button class="middle-btn btn-other" (click)="addValue('.')">,</ion-button>
       <ion-button class="right-btn btn-result">=</ion-button>
     </div>
 
