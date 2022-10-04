@@ -29,6 +29,10 @@ export class Tab2Page {
 
   }
 
+  getResult(){
+    
+  }
+
   valueIsOperator(value: string):boolean {
     return (value == '+' || value == '-' || value == '*' || value == '/');
   }
