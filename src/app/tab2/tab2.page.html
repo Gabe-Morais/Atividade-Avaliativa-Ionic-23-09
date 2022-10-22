@@ -21,6 +21,14 @@
   <div class="wrapper">
 
     <div>
+      <ion-button class="left-btn btn-other ms">MC</ion-button>
+      <ion-button class="middle-btn btn-other ms">MR</ion-button>
+      <ion-button class="middle-btn btn-other ms">M+</ion-button>
+      <ion-button class="middle-btn btn-other ms">M-</ion-button>
+      <ion-button class="right-btn btn-other ms" (click)="adicionarMemoria()">MS</ion-button>
+    </div>
+
+    <div>
       <ion-button class="left-btn btn-other">%</ion-button>
       <ion-button class="middle-btn btn-other" (click)="clearAll()">CE</ion-button>
       <ion-button class="middle-btn btn-other" (click)="clearOperation()">C</ion-button>

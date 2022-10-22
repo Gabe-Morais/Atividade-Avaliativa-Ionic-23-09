@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { evaluate } from 'mathjs'
+import { evaluate } from 'mathjs';
+import { IMem } from '../models/IMem.model';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -10,12 +12,27 @@ export class Tab2Page {
 
   operation = '';
   result = '';
-  number = false; 
-  caracter = true; 
-  caracteres = ['.', '/', '*', '-', '+'] 
+  number = false;
+  caracter = true;
+  caracteres = ['.', '/', '*', '-', '+']
 
-  constructor() { }
 
+  mem: IMem[] = [];
+
+
+  constructor(private alertController: AlertController) { }
+
+  NgOnInt() { }
+
+  async presentAlert(titulo: string, mensagem: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensagem,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
 
   addValue(valor: string) {
     this.caracter = this.caracteres.includes(valor); //verificando se o ultimo digito é um operador e retorna um valor booleano (true /false)
@@ -31,13 +48,42 @@ export class Tab2Page {
 
   }
 
+  adicionarMemoria() {
+    if (this.operation != '' && this.result != '') {
+      const mem: IMem = { operation: this.operation, result: Number(this.result) };
+      this.mem.push(mem)
+    }
+    else if (this.operation != '' && this.result == '') {
+      this.getResult();
+
+      const mem: IMem = { operation: this.operation, result: Number(this.result) };
+      this.mem.push(mem)
+    }
+
+    else {
+      this.presentAlert('Aviso!', 'Nenhum Valor para adicionar');
+    }
+
+
+  }
+
+  clearMem() {
+
+  }
+
+  
+
+
+
+
+
   getResult() {
-    try{
+    try {
       this.result = evaluate(this.operation);
-      }
-      catch (err) {
-        this.result = 'Inválido!';
-      } 
+    }
+    catch (err) {
+      this.result = 'Inválido!';
+    }
   }
 
 
