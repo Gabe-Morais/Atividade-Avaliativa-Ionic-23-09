@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { evaluate } from 'mathjs';
 import { IMem } from '../models/IMem.model';
 import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular'; 
+import { MemoriaModalPage } from '../utils/memoria-modal/memoria-modal.page';
 
 @Component({
   selector: 'app-tab2',
@@ -20,9 +22,19 @@ export class Tab2Page {
   mem: IMem[] = [];
 
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController, private modalCtrl: ModalController) { }
 
   NgOnInt() { }
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: MemoriaModalPage,
+      componentProps: {
+        memoria:this.mem
+      }
+    });
+    modal.present();
+  }
 
   async presentAlert(titulo: string, mensagem: string) {
     const alert = await this.alertController.create({
@@ -68,14 +80,37 @@ export class Tab2Page {
   }
 
   clearMem() {
-
+    this.mem = []
   }
 
-  
+  showMemory() {
+    const memoria: IMem = this.mem[this.mem.length-1];
+    this.operation = memoria.operation;
+    this.result = memoria.result.toString()
+    console.log('Mostrou: ', this.mem);
+  }
 
+  SomaMemoria() {
+    if(this.operation != ''){
+      const memoria:IMem = this.mem[this.mem.length - 1];
+      const novaMemoria:IMem = {operation:`${memoria.result} + ${this.result}`,
+         result:memoria.result + Number(this.result)};
+    
+      this.mem.push(novaMemoria);
+    }
+    
+  }
 
-
-
+  SubMemoria() {
+    if(this.operation != ''){
+      const memoria:IMem = this.mem[this.mem.length - 1];
+      const novaMemoria:IMem = {operation:`${memoria.result} - ${this.result}`,
+         result:memoria.result - Number(this.result)};
+         
+      this.mem.push(novaMemoria);
+    }
+    
+  }
 
   getResult() {
     try {
@@ -115,4 +150,6 @@ export class Tab2Page {
       this.number = true;
     }
   }
+
+  
 }

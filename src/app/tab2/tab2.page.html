@@ -21,11 +21,12 @@
   <div class="wrapper">
 
     <div>
-      <ion-button class="left-btn btn-other ms">MC</ion-button>
-      <ion-button class="middle-btn btn-other ms">MR</ion-button>
-      <ion-button class="middle-btn btn-other ms">M+</ion-button>
-      <ion-button class="middle-btn btn-other ms">M-</ion-button>
-      <ion-button class="right-btn btn-other ms" (click)="adicionarMemoria()">MS</ion-button>
+      <ion-button class="left-btn btn-other ms" (click)="clearMem()">MC</ion-button>
+      <ion-button class="middle-btn btn-other ms" (click)="showMemory()">MR</ion-button>
+      <ion-button class="middle-btn btn-other ms" (click)="SomaMemoria()">M+</ion-button>
+      <ion-button class="middle-btn btn-other ms" (click)="SubMemoria()">M-</ion-button>
+      <ion-button class="middle-btn btn-other ms" (click)="adicionarMemoria()">MS</ion-button>
+      <ion-button class="right-btn btn-other ms" (click)="openModal()">M</ion-button>
     </div>
 
     <div>

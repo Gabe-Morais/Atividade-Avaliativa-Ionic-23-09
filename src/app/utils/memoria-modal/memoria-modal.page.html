@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="exit
+      ()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Memoria da Calculadora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+ <ion-item lines="full" *ngFor="let mem of memoria">
+    <ion-label>{{mem.operation}} = {{mem.result}}</ion-label>
+ </ion-item>
+</ion-content>
